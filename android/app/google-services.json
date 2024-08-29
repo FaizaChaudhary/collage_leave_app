@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "989437567599",
+    "project_id": "collage-leave-app",
+    "storage_bucket": "collage-leave-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989437567599:android:1aaf9f660a82c26202639a",
+        "android_client_info": {
+          "package_name": "com.example.collage_leave_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989437567599-1lcqssfc6r2p3qgg2o3sknsbagj8078j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlpheOWev3Xo9UOahX8VBrhaVz2Nm397k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989437567599-1lcqssfc6r2p3qgg2o3sknsbagj8078j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
