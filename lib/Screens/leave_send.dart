@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import '../settings/colors.dart';
 import '../applications/applications.dart';
 import '../functions/leave_send_func.dart';
-class leave_send extends StatefulWidget {
-  const leave_send({super.key});
+
+class LeaveSend extends StatefulWidget {
+  final String teacherId; // Add this to accept the teacherId
+
+  const LeaveSend({super.key, required this.teacherId});
 
   @override
-  State<leave_send> createState() => _leave_sendState();
+  State<LeaveSend> createState() => _LeaveSendState();
 }
 
-class _leave_sendState extends State<leave_send> {
+class _LeaveSendState extends State<LeaveSend> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,9 +30,11 @@ class _leave_sendState extends State<leave_send> {
                 return Card(
                   child: ListTile(
                     onTap: () {
+                      // Pass the selected leave reason and teacherId to the function
                       date_select(
                         context,
                         Applications.application[index].toString(),
+                        widget.teacherId, // Pass the teacherId here
                       );
                     },
                     title: Text(

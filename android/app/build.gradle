@@ -57,13 +57,13 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
     signingConfigs {
         debug {
-            storeFile file('C:/Users/Hp/Desktop/signiKey.keystore')
+            storeFile file('C:/Users/HP/OneDrive/Desktop/signiKey.keystore')
             storePassword 'KingsMan'
             keyAlias 'signiKey'
             keyPassword 'KingsMan'
         }
         release {
-            storeFile file('C:/Users/Hp/Desktop/signiKey.keystore')
+            storeFile file('C:/Users/HP/OneDrive/Desktop/signiKey.keystore')
             storePassword 'KingsMan'
             keyAlias 'signiKey'
             keyPassword 'KingsMan'

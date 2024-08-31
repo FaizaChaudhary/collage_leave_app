@@ -12,12 +12,13 @@ class date_controller extends GetxController {
 
 FirebaseAuth _auth = FirebaseAuth.instance;
 CollectionReference application_ref =
-    FirebaseFirestore.instance.collection('applications');
+FirebaseFirestore.instance.collection('applications');
 final user =
-    FirebaseFirestore.instance.collection('users').doc(_auth.currentUser!.uid);
+FirebaseFirestore.instance.collection('users').doc(_auth.currentUser!.uid);
 
-date_controller _date_ = Get.put(date_controller());
-void date_select(context, String application) {
+date_controller date = Get.put(date_controller());
+
+void date_select(context, String application, String teacherId) {
   Get.bottomSheet(
     Padding(
       padding: const EdgeInsets.only(
@@ -40,10 +41,10 @@ void date_select(context, String application) {
           children: [
             Expanded(
               child: CupertinoDatePicker(
-                initialDateTime: _date_.date.value,
+                initialDateTime: date.date.value,
                 mode: CupertinoDatePickerMode.date,
                 onDateTimeChanged: ((value) {
-                  _date_.date.value = value;
+                  date.date.value = value;
                 }),
               ),
             ),
@@ -51,7 +52,7 @@ void date_select(context, String application) {
               onPressed: () async {
                 var id = DateTime.now().microsecondsSinceEpoch;
                 final username = await user.get();
-                if (!_date_.date.value.isBefore(
+                if (!date.date.value.isBefore(
                   DateTime.now().subtract(
                     const Duration(days: 1),
                   ),
@@ -61,11 +62,12 @@ void date_select(context, String application) {
                       'id': id.toString(),
                       'uid': _auth.currentUser!.uid.toString(),
                       'date':
-                          '${_date_.date.value.day}/${_date_.date.value.month}/${_date_.date.value.year}',
+                      '${date.date.value.day}/${date.date.value.month}/${date.date.value.year}',
                       'application': application,
                       'status': 0,
                       'dp': _auth.currentUser!.photoURL.toString(),
                       "name": username.get("name"),
+                      'teacherId': teacherId, // Include teacherId in the application
                     },
                   );
                   Get.back();
